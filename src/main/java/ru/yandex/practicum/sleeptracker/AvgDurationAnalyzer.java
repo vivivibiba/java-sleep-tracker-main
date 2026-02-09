@@ -2,9 +2,9 @@ package ru.yandex.practicum.sleeptracker;
 
 import java.util.List;
 
-public class AvgDurationAnalyzer implements SleepAnalyzer {
+public class AvgDurationAnalyzer implements SleepAnalyzer<Double> {
     @Override
-    public SleepAnalysisResult<?> apply(List<SleepingSession> sessions) {
+    public SleepAnalysisResult<Double> apply(List<SleepingSession> sessions) {
         double value = sessions.stream()
                 .mapToLong(SleepingSession::getDurationMinutes)
                 .average()

@@ -7,7 +7,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class SleeplessNightsAnalyzer implements SleepAnalyzer {
+public class SleeplessNightsAnalyzer implements SleepAnalyzer<Long> {
     // Ночь считаем как интервал с 00:00 до 06:00
     // Если ни одна сессия не пересекает этот интервал, ночь считается бессонной
 
@@ -15,7 +15,7 @@ public class SleeplessNightsAnalyzer implements SleepAnalyzer {
     private static final LocalTime NIGHT_END = LocalTime.of(6, 0);
 
     @Override
-    public SleepAnalysisResult<?> apply(List<SleepingSession> sessions) {
+    public SleepAnalysisResult<Long> apply(List<SleepingSession> sessions) {
         long value = countSleeplessNights(sessions);
         return new SleepAnalysisResult<>("Бессонных ночей", value);
     }

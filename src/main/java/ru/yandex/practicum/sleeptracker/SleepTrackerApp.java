@@ -9,7 +9,8 @@ import java.util.List;
 
 public class SleepTrackerApp {
     // Список анализаторов. Каждый анализатор считает одну метрику и возвращает результат
-    private final List<SleepAnalyzer> analyzers;
+    private final List<SleepAnalyzer<?>> analyzers;
+
 
     public SleepTrackerApp() {
         // Собираем все функции анализа в одном месте

@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ChronotypeAnalyzer implements SleepAnalyzer {
+public class ChronotypeAnalyzer implements SleepAnalyzer<Chronotype> {
     // Для хронотипа берём только ночной сон
     // Дневные сессии и бессонные ночи игнорируем
 
@@ -20,7 +20,7 @@ public class ChronotypeAnalyzer implements SleepAnalyzer {
     private static final LocalTime NIGHT_END = LocalTime.of(6, 0);
 
     @Override
-    public SleepAnalysisResult<?> apply(List<SleepingSession> sessions) {
+    public SleepAnalysisResult<Chronotype> apply(List<SleepingSession> sessions) {
         Chronotype type = determineChronotype(sessions);
         return new SleepAnalysisResult<>("Хронотип пользователя", type);
     }
